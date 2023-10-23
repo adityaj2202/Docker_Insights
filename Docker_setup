@@ -1,0 +1,30 @@
+Docker Engine install
+To install Docker on your system, follow these steps. Please note that the installation steps may vary slightly depending on your operating system. This instructions for installing Docker on Linux.
+
+1. Update your package manager's repository index:
+	sudo apt update
+   
+2. Install some required packages to add a repository over HTTPS and allow apt to use the repository:
+   sudo apt install apt-transport-https ca-certificates curl software-properties-common   
+
+3. Add the Docker GPG key:
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+4. Add the Docker repository:
+   echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+5. Update the package index again:
+   sudo apt update
+   
+6. Install Docker:
+   sudo apt install docker-ce docker-ce-cli containerd.io
+
+7. Start and enable the Docker service:
+   sudo systemctl start docker
+   sudo systemctl enable docker
+    
+8. you can run a simple test to make sure Docker is working as expected by running the following command:
+	docker run hello-world
+
+This command should pull and run a small test container, and you should see a "Hello from Docker!" message if Docker is functioning correctly.
+That's it! You've successfully installed Docker on your system. You can now start building and running containers.
